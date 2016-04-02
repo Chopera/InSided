@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>User overview</title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="https://davidstutz.github.io/bootstrap-multiselect/dist/css/bootstrap-multiselect.css" type="text/css"/>
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css" type="text/css"/>
+  	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<div id="wrapper">
+		<div id="header-wrapper">
+			<div class="header">
+				<div class="navbar navbar-default" role="navigation">
+			        	<div class="navbar-header">
+				            <a class="navbar-brand" href="#/"><img src="img/Insided_logo.png" /></a>
+			          	</div>
+			          	<div class="collapse navbar-collapse">
+				          	<ul class="nav navbar-nav">
+				              <li><a href="#"><img src="img/mail.png" /></a></li>
+				              <li><a href="#"><img src="img/JohnDoe.png" /></a></li>
+				              <li><p>John Doe</p></li>
+				              <li><a href="#">(logout)</a></li>
+				            </ul>
+			          	</div>
+		        </div>
+		    </div>
+		</div>
+    
+		<div id="sidebar-wrapper">
+			<div class="panel-group" id="accordion">
+			  <div class="panel panel-default"  id="forum-panel">
+			    <div class="panel-heading">
+			      <h4 class="panel-title side-bar-panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-forum">Forum</a>
+			      </h4>
+			    </div>
+			    <div id="collapse-forum" class="panel-collapse collapse  sidebar-collapse">
+			      <div class="panel-body">TODO: Forum menu</div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default" id="blog-panel">
+			    <div class="panel-heading">
+			      <h4 class="panel-title side-bar-panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-blog">Blog</a>
+			      </h4>
+			    </div>
+			    <div id="collapse-blog" class="panel-collapse collapse sidebar-collapse">
+			      <div class="panel-body">TODO: Blog menu</div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default"  id="research-panel">
+			    <div class="panel-heading">
+			      <h4 class="panel-title side-bar-panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-research">Research</a>
+			      </h4>
+			    </div>
+			    <div id="collapse-research" class="panel-collapse collapse sidebar-collapse">
+			      <div class="panel-body">TODO: Research menu</div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default"  id="inbox-panel">
+			    <div class="panel-heading">
+			      <h4 class="panel-title side-bar-panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-inbox">Inbox</a>
+			      </h4>
+			    </div>
+			    <div id="collapse-inbox" class="panel-collapse collapse sidebar-collapse">
+			      <div class="panel-body">TODO: Inbox menu</div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default"  id="users-panel">
+			    <div class="panel-heading">
+			      <h4 class="panel-title side-bar-panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-users">Users</a>
+			      </h4>
+			    </div>
+			    <div id="collapse-users" class="panel-collapse collapse sidebar-collapse in">
+			      <div class="panel-body">
+			      	<ul class="nav nav-pills nav-stacked">
+  						<li class="active"><a href="#">Overview</a></li>
+  						<li><a href="#">Moderation</a></li>
+  						<li><a href="#">Add user</a></li>
+					</ul>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default sidebar-panel"  id="settings-panel">
+			    <div class="panel-heading">
+			      <h4 class="panel-title side-bar-panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-settings">Settings</a>
+			      </h4>
+			    </div>
+			    <div id="collapse-settings" class="panel-collapse collapse">
+			      <div class="panel-body">TODO: Settings menu</div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	
+		<div id="page-content-wrapper">
+			<div id="page-content-header">
+				<h2 id="page-content-header-text">User overview</h2>
+				<div id="page-content-header-filters">
+	            	<div><button type="button" class="btn btn-info">Add user</button></div>
+	            	<div><button type="button" class="btn btn-default advanced-filter-toggle">Advanced filter</button></div>
+					<div class = "input-group">
+	               		<input id="user-name-search-text" type="text" class="form-control">
+	               		<span class="input-group-btn">
+	                  		<button id="user-name-search" class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+	               		</span>
+	            	</div>
+					<div class="multiselect-dropdown">
+						<select id="header-usergroup-multiselect-filter" multiple="multiple">
+						    <option value="Captain">Captain</option>
+						    <option value="Colonel">Colonel</option>
+						    <option value="General">General</option>
+						    <option value="Lieutenant">Lieutenant</option>
+						    <option value="Officer">Officer</option>
+						</select>
+					</div>	            	
+				</div>
+			</div>
+			
+			<div id="page-content">
+	        	<div class="panel-group">
+					<div class="panel panel-default panel-advanced-filters hidden">
+				    	<div class="panel-heading">
+				      		<h4 class="panel-title"><a data-toggle="collapse" class="collapse-toggle collapsed" href="#collapse-advanced-filters">Advanced filter</a></h4>
+				    	</div>
+				    	<div id="collapse-advanced-filters" class="panel-collapse collapse">
+				    		<div class="panel-body">
+				    			<div class="advanced-filter-row">
+									<div class="dropdown">
+										<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose a value<span class="caret"></span></button>
+										<ul class="dropdown-menu">
+									    	<li><a href="#">Replies</a></li>
+									    	<li><a href="#">Topics</a></li>
+									    	<li><a href="#">Solved</a></li>
+										</ul>
+									</div>
+									<div class="dropdown hidden">
+										<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose a value<span class="caret"></span></button>
+										<ul class="dropdown-menu">
+									    	<li><a href="#">is greater than</a></li>
+									    	<li><a href="#">is less than</a></li>
+									    	<li><a href="#">is equal to</a></li>
+										</ul>
+									</div>
+									<div class="hidden">
+					               		<input type="number" class="form-control row-last-input">
+					                	<button class="btn btn-danger clear-row" type="button">X</button>
+					                </div>
+								</div>
+								<div class="advanced-filter-row hidden">
+									<div class="dropdown">
+										<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose a value<span class="caret"></span></button>
+										<ul class="dropdown-menu">
+									    	<li><a href="#">Usergroup</a></li>
+										</ul>
+									</div>									
+									<div class="multiselect-dropdown hidden">
+										<select id="usergroup-multiselect-filter" multiple="multiple">
+										    <option value="Captain">Captain</option>
+										    <option value="Colonel">Colonel</option>
+										    <option value="General">General</option>
+										    <option value="Lieutenant">Lieutenant</option>
+										    <option value="Officer">Officer</option>
+										</select>
+									</div>
+									<div class="hidden">
+					                	<button class="btn btn-danger clear-row" type="button">X</button>
+					                </div>
+								</div>										
+				    			<div class="advanced-filter-row hidden">
+									<div class="dropdown">
+										<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose a value<span class="caret"></span></button>
+										<ul class="dropdown-menu">
+									    	<li><a href="#">Registration date</a></li>
+									    	<li><a href="#">Last login</a></li>
+										</ul>
+									</div>
+									<div class="dropdown hidden">
+										<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose a value<span class="caret"></span></button>
+										<ul class="dropdown-menu">
+									    	<li><a href="#">Before</a></li>
+									    	<li><a href="#">After</a></li>
+									    	<li><a href="#">Exact date</a></li>
+										</ul>
+									</div>
+									<div class="hidden">
+					               		<input type="text" class="form-control datepicker row-last-input">
+					                	<button class="btn btn-danger clear-row" type="button">X</button>
+					                </div>
+								</div>
+				                <button type="button" class="btn btn-info disabled" id="add-row">add row</button>
+				    		</div>
+				    		<div class="panel-footer">
+				    			<button id="apply-filters" type="button" class="btn btn-success disabled">Apply</button>
+				    			<button id="clear-filters" class="btn btn-default disabled" type="button">Clear filters</button>
+				    			<a id="close-filters" href="#">Close</a>
+				    		</div>
+				    	</div>
+				  	</div>
+				</div>
+				<div id="user-data-pagination">
+					<div class="btn pull-left">
+						<span>Results: </span><span class="result-count">1337</span>
+					</div>
+					<div class="pull-right">
+						<a class="btn disabled paginator-btn" href="#">First</a>-<a class="btn disabled paginator-btn" href="#">Previous</a>
+						Page
+						<span id="current-page-number" class="btn">1</span>
+						Of
+						<span id="total-page-number">99</span>
+						<a class="btn paginator-btn" href="#">Next</a>-<a class="btn paginator-btn" href="#">Last</a>
+						<div id="page-size-selector" class="dropdown">
+							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">10 Rows<span class="caret"></span></button>
+							<ul class="dropdown-menu">
+						    	<li><a href="#">10 Rows</a></li>
+						    	<li><a href="#">25 Rows</a></li>
+						    	<li><a href="#">50 Rows</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="user-data"></div>
+		  </div>
+	  </div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.js"></script>
+	<script src="https://davidstutz.github.io/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.js"></script>
+	<script src="js/userDataService.js"></script>
+	<script src="js/MVC.js"></script>
+
+	<script type="text/template" id="user-data-table-template"> 
+		<table id="user-data-table" class="table table-bordered table-striped table-hover">
+	    <thead>
+	      <tr>
+	        <th><input type="checkbox" value="" id="check-all"><label for="check-all"><span></span></label><a class="action-sort" sortField="Username" sortDirection="1">Username<span class="sort-arrow glyphicon"></span></a></th>
+	        <th><a class="action-sort" sortField="Email" sortDirection="1">Email<span class="sort-arrow glyphicon"></span></a></th>
+	        <th><a class="action-sort" sortField="ReplyCount" sortDirection="-1">Replies<span class="sort-arrow glyphicon"></span></a></th>
+	        <th><a class="action-sort" sortField="TopicCount" sortDirection="-1">Topics<span class="sort-arrow glyphicon"></span></a></th>
+	        <th><a class="action-sort" sortField="SolvedCount" sortDirection="-1">Solved<span class="sort-arrow glyphicon"></span></a></th>
+	        <th><a class="action-sort" sortField="UserGroup" sortDirection="1">Usergroup<span class="sort-arrow glyphicon"></span></a></th>
+	        <th><a class="action-sort" sortField="RegistrationDate" sortDirection="1">Registration Date<span class="sort-arrow glyphicon"></span></a></th>
+	        <th><a class="action-sort" sortField="LastLogin" sortDirection="1">Last Login<span class="sort-arrow glyphicon"></span></a></th>
+	      </tr>
+	    </thead>
+	    <tbody>
+		    {{#users}}
+		    	<tr>
+			    	<td><input type="checkbox" value="" id="checkbox-{{id}}">
+			    		<label for="checkbox-{{id}}"><span></span><img class="user-image" src="{{ImageUrl}}"></img>{{Username}}</label>
+			    		<img class="clipboard-image" src="img/CopyToClipboard.png"></td>
+			    	<td>{{Email}}</td><td>{{ReplyCount}}</td>
+			    	<td>{{TopicCount}}</td>
+			    	<td>{{SolvedCount}}</td>
+			    	<td>{{UserGroup}}</td>
+			    	<td>{{RegistrationDate}}</td>
+			    	<td>{{LastLogin}}</td>
+		    	</tr>
+			{{/users}}
+		</tbody>
+		</table>
+	</script>
+	<script>
+		$(function() {
+			
+			// usersModel and userView handle the users data and display it, and also handle its events
+			var usersModel = new UsersModel(userDataService);
+        	var userView = new UsersView(usersModel, "div#user-data", $("#user-data-table-template").html());
+			usersModel.searchKeyword("");	// The view will automatically display the search results as a table
+			
+			
+			// Below are various calls to set up the rest of the page (e.g. intialise components, add event handlers, etc)
+			// In a real-world app each component on the page would have it's own model and view, and this code would not be here
+			// however for now this is sufficient to meet the requirements of the project
+			
+			// Handle the user search
+			$("#user-name-search").on("click", function(){
+				usersModel.searchKeyword($("#user-name-search-text").val());
+			});
+			
+			
+			// Set up 3rd party components
+			$("#usergroup-multiselect-filter").multiselect({
+				nonSelectedText: 'Choose a value',
+				onChange: function(element, checked) {
+					$("#usergroup-multiselect-filter").parent().next().removeClass("hidden");
+				}
+			});
+
+			$("#header-usergroup-multiselect-filter").multiselect({
+				nonSelectedText: 'Filter usergroup',
+				buttonWidth: '200px'
+			});			
+			$('.datepicker').datepicker();
+
+			$(".dropdown-menu li a").on("click", function(){
+  				$(this).parents(".dropdown").find('.btn').html($(this).text()+" <span class=\"caret\"></span>");
+  				$(this).parents(".dropdown").next().removeClass("hidden");
+			});
+			
+			
+			// Logic to handle the presentation of the Advanced filters
+			$(".row-last-input").blur(function(){
+				if($(this).val().length > 0){
+					$("#add-row").removeClass("disabled");
+					$("#apply-filters").removeClass("disabled");
+					$("#clear-filters").removeClass("disabled");
+				}
+			});
+			
+			function clearRow(row){
+				
+				$(row).parents(".advanced-filter-row").find('.dropdown .btn').html("Choose a value<span class=\"caret\"></span>");
+				$($(row).parents(".advanced-filter-row").find('.dropdown')[1]).addClass("hidden");
+				$(row).parents(".advanced-filter-row").find('.form-control').val("");
+				$(row).parents(".advanced-filter-row").find('.multiselect-dropdown').addClass("hidden");
+				$(row).parent().addClass("hidden");
+				$(row).parents(".advanced-filter-row").find('#usergroup-multiselect-filter').multiselect('deselectAll', false);
+				$(row).parents(".advanced-filter-row").find('#usergroup-multiselect-filter').multiselect('refresh');
+				$(row).parents(".advanced-filter-row").find('.datepicker').datepicker("clearDates");
+			}
+			
+			$(".clear-row").on("click", function(){
+				clearRow(this);
+			});
+			
+			$("#clear-filters").on("click", function(){
+				$(".clear-row").each(function(){
+					clearRow(this);
+				});
+				$(".advanced-filter-row:not(:first)").addClass("hidden");
+			});
+			
+			$("#add-row").on("click", function(){
+				$(".advanced-filter-row:not(.hidden)").next().removeClass("hidden");
+			});
+			
+			$("a#close-filters").on("click", function(){
+				$(".advanced-filter-toggle").toggleClass("btn-black");
+				$(".panel-advanced-filters").toggleClass("hidden");
+			});
+			
+			$(".advanced-filter-toggle").on("click", function(){
+				$(this).toggleClass("btn-black");
+				$(".panel-advanced-filters").toggleClass("hidden");
+			});
+
+		});
+	</script>
+</body>
+</html>
